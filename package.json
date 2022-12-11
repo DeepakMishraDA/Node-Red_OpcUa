@@ -1,0 +1,11 @@
+{
+  "name": "Node-Red_OpcUa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:DeepakMishraDA/Node-Red_OpcUa.git",
+  "author": "<deepakvinodmishra@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}
