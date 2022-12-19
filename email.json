@@ -1,0 +1,94 @@
+[
+    {
+        "id": "253b9984cfe5ae3a",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7276de95f577897e",
+        "type": "e-mail",
+        "z": "253b9984cfe5ae3a",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "youremail@gmail.com",
+        "dname": "",
+        "credentials": {
+            "userid": "",
+            "password": ""
+        },
+        "x": 850,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "df32e2fb1f2970fb",
+        "type": "catch",
+        "z": "253b9984cfe5ae3a",
+        "name": "",
+        "scope": [
+            "959342d64ed189b2"
+        ],
+        "uncaught": false,
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "6409d39fefe87de8"
+            ]
+        ]
+    },
+    {
+        "id": "6409d39fefe87de8",
+        "type": "function",
+        "z": "253b9984cfe5ae3a",
+        "name": "function 1",
+        "func": "if (msg.error.message.includes('Error')){\n    msg.topic = \"Some error while saving to postgres!\";\n    return msg;\n}\nreturn;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3fd43c32ace3a9f",
+        "type": "status",
+        "z": "253b9984cfe5ae3a",
+        "name": "",
+        "scope": [
+            "959342d64ed189b2"
+        ],
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "7276de95f577897e"
+            ]
+        ]
+    },
+    {
+        "id": "959342d64ed189b2",
+        "type": "postgresql",
+        "z": "253b9984cfe5ae3a",
+        "name": "",
+        "query": "SELECT * FROM ;",
+        "postgreSQLConfig": "",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 930,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    }
+]
